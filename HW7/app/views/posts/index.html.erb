@@ -1,0 +1,11 @@
+<h3>
+<div>These are all your posts, <%=current_user.email%>: </h1>
+<% @user.posts.each do|post| %>
+<div>
+<%=post.name%> (<%=post.description%>)
+</div>
+<% end %>
+<%= link_to("Create a new post", new_user_post_path(current_user.id)) %>
+</br>
+<%= link_to("Logout", log_out_path()) %>
+</h3>

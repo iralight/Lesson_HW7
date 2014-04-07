@@ -1,4 +1,7 @@
 HW7::Application.routes.draw do
+  get "posts/index"
+  get "posts/new"
+  get "posts/create"
   get '/log-in' => "sessions#new"
   post '/log-in' => "sessions#create", as: :log_in
   get '/log-out' => "sessions#destory", as: :log_out
@@ -6,7 +9,9 @@ HW7::Application.routes.draw do
   get "users/create"
   get "home/index"
   get '/' => 'home#index'
-  resources :users
+  resources :users do
+    resources :posts
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
